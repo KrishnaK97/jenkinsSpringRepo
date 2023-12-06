@@ -2,6 +2,16 @@ pipeline {
 
     agent any
 
+    environment{
+
+        VERSION_NAME = "K-Version"
+
+    }
+
+    tools{
+        gradle "GradleKK"       //check Jenkins > Manage Jenkins > Tools
+    }
+
     stages {
 
             stage('Compile Only Not Run') {
@@ -57,11 +67,13 @@ pipeline {
 
         always{
             echo 'Printed after running all stages'
+            echo '${VERSION_NAME}'
 
         }
 
         success{
             echo 'All steps in all stages successfull'
+            echo '${VERSION_NAME}'
         }
 
         failure{
