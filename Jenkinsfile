@@ -67,13 +67,13 @@ pipeline {
 
         always{
             echo 'Printed after running all stages'
-            echo ${VERSION_NAME}
+            echo "Version Name: ${env.VERSION_NAME}"
 
         }
 
         success{
             echo 'All steps in all stages successfull'
-            echo ${VERSION_NAME}
+            echo "Version Name: ${env.VERSION_NAME}"
         }
 
         failure{
