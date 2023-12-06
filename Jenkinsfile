@@ -4,10 +4,10 @@ pipeline {
 
     stages {
 
-            stage('Compile') {
+            stage('Compile Only Not Run') {
                 steps {
                     echo 'Clean previous build output'
-                    bat './gradlew clean'
+                    bat 'gradlew clean'
 
                     echo 'Compile SpringBootApp1'
                     bat './gradlew :compileJava :compileTestJava --stacktrace'
