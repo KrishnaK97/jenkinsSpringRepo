@@ -9,7 +9,7 @@ pipeline {
                     echo 'Clean previous build output'
                     bat 'gradlew clean'
 
-                    echo $SHELL
+                    echo '$SHELL'
 
                     echo 'Compile SpringBootApp1'
                     bat './gradlew :compileJava :compileTestJava --stacktrace'
