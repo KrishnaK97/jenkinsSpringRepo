@@ -9,10 +9,14 @@ pipeline {
                     echo 'Clean previous build output'
                     bat 'gradlew clean'
 
-                    echo '$SHELL'
+                    echo '$SHELL'   // to check terminal used for bat commands execution
 
                     echo 'Compile SpringBootApp1'
                     bat './gradlew :compileJava :compileTestJava --stacktrace'
+
+                    echo "Jenkins Shell: ${env.SHELL}"
+                    echo "Jenkins Shell: ${env.COMSPEC}"
+                    echo "Jenkins Shell: ${env.PSModulePath}"
                 }
             }
 
@@ -47,5 +51,25 @@ pipeline {
 //                     // Add deployment steps here
 //                 }
 //             }
+    }
+
+    post{
+
+        always{
+            echo 'Printed after running all stages'
+
+        }
+
+        success{
+            echo 'All steps in all stages successfull'
+        }
+
+        failure{
+            echo 'All steps in all stages not successfull'
+
+        }
+
+
+
     }
 }
