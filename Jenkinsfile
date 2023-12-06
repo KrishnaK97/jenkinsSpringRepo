@@ -6,14 +6,14 @@ pipeline {
 
             stage('Compile') {
                 steps {
-
                     echo 'Clean previous build output'
-                    sh './gradlew clean'
+                    bat './gradlew clean'
 
                     echo 'Compile SpringBootApp1'
-                    sh './gradlew :compileJava :compileTestJava --stacktrace'
+                    bat './gradlew :compileJava :compileTestJava --stacktrace'
                 }
             }
+
 
 //             stage('Build') {
 //                 steps {
